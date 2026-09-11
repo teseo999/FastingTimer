@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Privacy Policy</title>
+    <script>
+        // 브라우저 언어 확인 및 소문자 변환
+        const userLang = (navigator.language || navigator.userLanguage).toLowerCase();
+        
+        if (userLang.startsWith('ko')) {
+            // 한국어
+            window.location.replace('./ko.html');
+        } else if (userLang.startsWith('ja')) {
+            // 일본어
+            window.location.replace('./ja.html');
+        } else if (userLang.startsWith('zh')) {
+            // 중국어 계열 분기
+            if (userLang.includes('tw') || userLang.includes('hk') || userLang.includes('hant')) {
+                // 대만어(번체)
+                window.location.replace('./zh-tw.html');
+            } else {
+                // 중국어(간체)
+                window.location.replace('./zh-cn.html');
+            }
+        } else {
+            // 기본값 (영어 및 기타 언어)
+            window.location.replace('./en.html');
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
